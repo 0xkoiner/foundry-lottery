@@ -2,7 +2,7 @@
 
 A fully decentralized lottery application built in Solidity, utilizing Chainlink VRF for provably fair randomization. This project includes comprehensive test coverage with Foundry, ensuring security and reliability.
 
-Features
+<h2>Features:</h2>
 
 Smart Contracts: Core logic written in Solidity
 Chainlink VRF: Secures random number generation for lottery fairness
