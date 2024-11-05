@@ -1,0 +1,110 @@
+anvil::ChainID 31337
+
+```bash
+Foundry::forge init
+Foundry::forge compile
+
+// Deploy Contract on Anvil
+Foundry::forge create `contract-name` --rpc-url [url] --private-key [private-key]
+
+// Fromat code
+Foundry::forge fmt
+
+// Install Chainlink Pack
+forge install çsmartcontractkit/chainlink-brownie-contracts
+```
+
+// Create a Script
+./script -> [Name].s.sol
+
+// Deploy Contract with Script
+```bash
+forge script script/DeploySimpleStorage.s.sol --rpc-url [url] --broadcast --private-key [private-key]
+```
+
+// Deploy Contract with Script and .env
+```bash
+forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL_ANVIL --broadcast --private-key $PRIVATE_KEY_1
+```
+
+// Hex to Dec
+```bash
+cast --to-base [hex] dec
+```
+
+// Encryt keys with ERC-2335 to JSON
+```bash
+cast wallet import defauktKey --interactive
+```
+1. Enter key
+2. Enter Password
+
+Res: Address
+```bash
+forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL_ANVIL --account defaultKey --sender [Res: Address] --broadcast -vvvv
+
+// Legacy
+forge script script/DeploySimpleStorage.s.sol --rpc-url $RPC_URL_ANVIL --account defaultKey --sender [Res: Address] --legacy --broadcast -vvvv
+
+```
+L_ Enter Password: _
+
+```bash
+cast wallet list
+```
+
+```bash
+cd .foundry/keystores/
+```
+// Cast SEND TX 0x5FbDB2315678afecb367f032d93F642f64180aa3
+```bash
+cast send [contract address] "[name of function with @params]" [args] --rpc-url $RPC_URL_ANVIL --private-key $PRIVATE_KEY_1
+```
+
+// Cast Call
+```bash
+cast call 0x5FbDB2315678afecb367f032d93F642f64180aa3 "retrieve()"
+```
+
+// Run test for specific testfunc() include fork
+```bash
+forge test --mt [func_name] -vvvv --fork-url $SEPOLIA_RPC_URL
+forge test --mt -vvvv --fork-url $SEPOLIA_RPC_URL 
+```
+
+// Test coverage include fork
+```bash
+forge coverage --fork-url $SEPOLIA_RPC_URL  
+```
+
+// Check Gas of one function
+```bash
+forge snapshot --mt [func_name]
+```
+export -> .gas-snapshot -> FundMeTest:testWithdrawOwnerFromMultiUsersFunded() (gas: 515047)
+
+// Check Storage of Contract
+```bash
+forge inspect [contract_name] storageLayout
+```
+export -> JSON
+
+// Cast check Storage After script Deploy
+```bash
+cast storage [deplyed_contract_address] [slot]
+```
+
+// Cast to get Hex of function
+```bash
+cast sig ["func_name"]
+```
+export -> 0x4e71d92d
+
+// CEI: Checks, Effects Iteractions Pattern
+
+// CRON
+*****
+*m*h*d*m*dof
+*/1**** --> every 1 minute
+*1**** --> every first minute of the hour
+**/1*** --> every 1 hour
