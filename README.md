@@ -1,4 +1,4 @@
-## Decentralized Lottery with Chainlink VRF 🎲
+## Title: Decentralized Lottery with Chainlink VRF 🎲
 
 A fully decentralized lottery application built in Solidity, utilizing Chainlink VRF for provably fair randomization. This project includes comprehensive test coverage with Foundry, ensuring security and reliability.
 
